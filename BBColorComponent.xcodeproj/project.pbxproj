@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13772BF21A2316C7004BC58F /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13772BF11A2316C7004BC58F /* LabelViewController.m */; };
 		137CB69A1A0CB14D00536FBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6991A0CB14D00536FBD /* main.m */; };
 		137CB69D1A0CB14D00536FBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB69C1A0CB14D00536FBD /* AppDelegate.m */; };
 		137CB6A01A0CB14D00536FBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB69F1A0CB14D00536FBD /* ViewController.m */; };
@@ -14,6 +15,10 @@
 		137CB6A51A0CB14D00536FBD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137CB6A41A0CB14D00536FBD /* Images.xcassets */; };
 		137CB6A81A0CB14D00536FBD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137CB6A61A0CB14D00536FBD /* LaunchScreen.xib */; };
 		137CB6B41A0CB14D00536FBD /* BBColorComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6B31A0CB14D00536FBD /* BBColorComponentTests.m */; };
+		137CB6C11A0CC0CF00536FBD /* BBComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6C01A0CC0CF00536FBD /* BBComponent.m */; };
+		137CB6C41A0CDD4F00536FBD /* BBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6C31A0CDD4F00536FBD /* BBColor.m */; };
+		137CB6C71A0CE45200536FBD /* BBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6C61A0CE45200536FBD /* BBControl.m */; };
+		13ADF2211A22FF43003FE86D /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADF2201A22FF43003FE86D /* Cell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13772BF01A2316C7004BC58F /* LabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelViewController.h; path = ViewContoller/LabelViewController.h; sourceTree = "<group>"; };
+		13772BF11A2316C7004BC58F /* LabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelViewController.m; path = ViewContoller/LabelViewController.m; sourceTree = "<group>"; };
 		137CB6941A0CB14D00536FBD /* BBColorComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBColorComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137CB6981A0CB14D00536FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137CB6991A0CB14D00536FBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +47,15 @@
 		137CB6AD1A0CB14D00536FBD /* BBColorComponentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBColorComponentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137CB6B21A0CB14D00536FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137CB6B31A0CB14D00536FBD /* BBColorComponentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBColorComponentTests.m; sourceTree = "<group>"; };
+		137CB6BE1A0CB4F900536FBD /* BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BB.h; sourceTree = "<group>"; };
+		137CB6BF1A0CC0CF00536FBD /* BBComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBComponent.h; sourceTree = "<group>"; };
+		137CB6C01A0CC0CF00536FBD /* BBComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBComponent.m; sourceTree = "<group>"; };
+		137CB6C21A0CDD4F00536FBD /* BBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBColor.h; sourceTree = "<group>"; };
+		137CB6C31A0CDD4F00536FBD /* BBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBColor.m; sourceTree = "<group>"; };
+		137CB6C51A0CE45200536FBD /* BBControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBControl.h; sourceTree = "<group>"; };
+		137CB6C61A0CE45200536FBD /* BBControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBControl.m; sourceTree = "<group>"; };
+		13ADF21F1A22FF43003FE86D /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cell.h; path = Cell/Cell.h; sourceTree = "<group>"; };
+		13ADF2201A22FF43003FE86D /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cell.m; path = Cell/Cell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13772BEF1A23169C004BC58F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				13772BF01A2316C7004BC58F /* LabelViewController.h */,
+				13772BF11A2316C7004BC58F /* LabelViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		137CB68B1A0CB14D00536FBD = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,9 @@
 		137CB6961A0CB14D00536FBD /* BBColorComponent */ = {
 			isa = PBXGroup;
 			children = (
+				13772BEF1A23169C004BC58F /* ViewController */,
+				137CB6BD1A0CB4C200536FBD /* Common */,
+				13ADF21E1A22FF0B003FE86D /* Cell */,
 				137CB69B1A0CB14D00536FBD /* AppDelegate.h */,
 				137CB69C1A0CB14D00536FBD /* AppDelegate.m */,
 				137CB69E1A0CB14D00536FBD /* ViewController.h */,
@@ -117,6 +145,29 @@
 				137CB6B21A0CB14D00536FBD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		137CB6BD1A0CB4C200536FBD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				137CB6BE1A0CB4F900536FBD /* BB.h */,
+				137CB6BF1A0CC0CF00536FBD /* BBComponent.h */,
+				137CB6C01A0CC0CF00536FBD /* BBComponent.m */,
+				137CB6C21A0CDD4F00536FBD /* BBColor.h */,
+				137CB6C31A0CDD4F00536FBD /* BBColor.m */,
+				137CB6C51A0CE45200536FBD /* BBControl.h */,
+				137CB6C61A0CE45200536FBD /* BBControl.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		13ADF21E1A22FF0B003FE86D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				13ADF21F1A22FF43003FE86D /* Cell.h */,
+				13ADF2201A22FF43003FE86D /* Cell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				137CB6A01A0CB14D00536FBD /* ViewController.m in Sources */,
+				137CB6C71A0CE45200536FBD /* BBControl.m in Sources */,
 				137CB69D1A0CB14D00536FBD /* AppDelegate.m in Sources */,
 				137CB69A1A0CB14D00536FBD /* main.m in Sources */,
+				137CB6C11A0CC0CF00536FBD /* BBComponent.m in Sources */,
+				137CB6C41A0CDD4F00536FBD /* BBColor.m in Sources */,
+				13ADF2211A22FF43003FE86D /* Cell.m in Sources */,
+				13772BF21A2316C7004BC58F /* LabelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +468,7 @@
 				137CB6B91A0CB14D00536FBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		137CB6BA1A0CB14D00536FBD /* Build configuration list for PBXNativeTarget "BBColorComponentTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +477,7 @@
 				137CB6BC1A0CB14D00536FBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
