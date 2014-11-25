@@ -160,7 +160,7 @@
     
     if(key == 3){
         backGroundColor = UIColorFromRGB(0x72B93C);
-        buttonBackgroundColor = UIColorFromRGB(0x72B93C);
+        buttonBackgroundColor = UIColorFromRGB(0xffffff);
         buttonTitleColor = COLOR_FFFFFF;
         naviBackgroundColor = COLOR_FFFFFF;
         naviButtonBackgroundColor = COLOR_CLEAR;
