@@ -127,7 +127,7 @@ static BBComponent *s_BBComponent;
 }
 
 //button 생성
-+ (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font  BBColorType:(BBColorType)type{
++ (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor highlight:(BOOL)highlight text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font BBColorType:(BBColorType)type{
     
     BBUIButton *button = [[BBUIButton alloc]initWithFrame:frame];
     
@@ -135,19 +135,23 @@ static BBComponent *s_BBComponent;
     button.BBColorType = type;
     
     BBColorType backgroundType = BBColorButtonBackground;
+//    BBColorType highlightType = BBColorButtonHighLight;
     BBColorType titleColorType = BBColorButtonTitle;
     
     if(type == BBColorNaviButton){
         backgroundType = BBColorNaviButtonBackground;
         titleColorType = BBColorNaviButtonTitle;
+//        highlightType = BBColorNaviButtonHighLight;
     }
     else if(type == BBColorAlertCancelButton){
         backgroundType = BBColorAlertCancelButtonBackground;
         titleColorType = BBColorAlertCancelButtonTItle;
+//        highlightType = BBColorAlertCancelHighLight;
     }
     else if(type == BBColorAlertOtherButton){
         backgroundType = BBColorAlertOtherButtonBackground;
         titleColorType = BBColorAlertOtherButtonTItle;
+//        highlightType = BBColorAlertOtherHighLight;
     }
     
     float key = [BBColor getColorKey];
@@ -155,6 +159,7 @@ static BBComponent *s_BBComponent;
     [button setBackgroundColor:(key > 0) ? [BBColor getColor:backgroundType] : backgroundColor];
     [button setTitle:text            forState:UIControlStateNormal];
     [button setTitleColor:(key > 0) ? [BBColor getColor:titleColorType] : textColor  forState:UIControlStateNormal];
+    [button setHighlighted:highlight];
     
     
     [[button titleLabel] setFont:font];
@@ -298,9 +303,9 @@ static BBComponent *s_BBComponent;
         [self.message setLineBreakMode:NSLineBreakByWordWrapping];
         [self.message setNumberOfLines:0];
         
-        self.cancelBtn = [BBComponent makeButtonForCustom:CGRectMake(20, [BBComponent getY:self.message]+20, self.backgroundView.frame.size.width-40, 40) backGroundColor:COLOR_CLEAR text:@"Cancel Buttton" textColor:COLOR_000000 font:DEFAULT_FONT_15 BBColorType:BBColorAlertCancelButton];
+        self.cancelBtn = [BBComponent makeButtonForCustom:CGRectMake(20, [BBComponent getY:self.message]+20, self.backgroundView.frame.size.width-40, 40) backGroundColor:COLOR_CLEAR highlight:YES text:@"Cancel Buttton" textColor:COLOR_000000 font:DEFAULT_FONT_15 BBColorType:BBColorAlertCancelButton];
         
-        self.otherBtn = [BBComponent makeButtonForCustom:CGRectMake(20, [BBComponent getY:self.cancelBtn]+10, self.backgroundView.frame.size.width-40, 40) backGroundColor:COLOR_CLEAR text:@"Other Button" textColor:COLOR_000000 font:DEFAULT_FONT_15 BBColorType:BBColorAlertOtherButton];
+        self.otherBtn = [BBComponent makeButtonForCustom:CGRectMake(20, [BBComponent getY:self.cancelBtn]+10, self.backgroundView.frame.size.width-40, 40) backGroundColor:COLOR_CLEAR highlight:YES  text:@"Other Button" textColor:COLOR_000000 font:DEFAULT_FONT_15 BBColorType:BBColorAlertOtherButton];
         
         self.backgroundView.layer.cornerRadius = 5;
         self.cancelBtn.layer.cornerRadius = 5;
@@ -337,8 +342,8 @@ static BBComponent *s_BBComponent;
         self.backgroundView = [BBComponent makeView:CGRectMake(0, 0, frame.size.width, frame.size.height) backgroundColor:COLOR_FFFFFF BBColorType:BBColorNaviBackground];
 
         title = [BBComponent makeLabel:CGRectMake(0, 0, frame.size.width, 16) backgroundColor:COLOR_CLEAR text:@"Title" textColor:COLOR_000000 textAlign:NSTextAlignmentCenter font:DEFAULT_FONT_15 BBColorType:BBColorNaviTitle];
-        leftBtn = [BBComponent makeButtonForCustom:CGRectMake(10, 20+10, 70, 25) backGroundColor:COLOR_CLEAR text:@"LEFT" textColor:COLOR_000000 font:DEFAULT_FONT_12 BBColorType:BBColorNaviButton];
-        rightBtn = [BBComponent makeButtonForCustom:CGRectMake(frame.size.width-80, 20+10, 70, 25) backGroundColor:COLOR_CLEAR text:@"RIGHT" textColor:COLOR_000000 font:DEFAULT_FONT_12 BBColorType:BBColorNaviButton];
+        leftBtn = [BBComponent makeButtonForCustom:CGRectMake(10, 20+10, 70, 25) backGroundColor:COLOR_CLEAR highlight:YES  text:@"LEFT" textColor:COLOR_000000 font:DEFAULT_FONT_12 BBColorType:BBColorNaviButton];
+        rightBtn = [BBComponent makeButtonForCustom:CGRectMake(frame.size.width-80, 20+10, 70, 25) backGroundColor:COLOR_CLEAR highlight:YES  text:@"RIGHT" textColor:COLOR_000000 font:DEFAULT_FONT_12 BBColorType:BBColorNaviButton];
         
         [leftBtn addTarget:self action:@selector(onLeftBtn:) forControlEvents:UIControlEventTouchUpInside];
         [rightBtn addTarget:self action:@selector(onRightBtn:) forControlEvents:UIControlEventTouchUpInside];

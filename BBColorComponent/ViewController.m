@@ -10,7 +10,8 @@
 #import "BB.h"
 #import "Cell.h"
 #import "LabelViewController.h"
-
+#import "BBUiViewController.h"
+#import "BBUIButtonViewController.h"
 @interface ViewController () <BBUINaviViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     BBUITableView *table;
 }
@@ -44,7 +45,7 @@
 }
 
 -(void)onRightBtn:(id)sender{
-    [BBControl changeColor:YES];
+    [BBControl changeColor];
 }
 
 - (void)viewDidLoad {
@@ -68,7 +69,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 // Return the number of rows in the section.
-    return 1;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,9 +89,18 @@
     // Configure the cell...
 
     if(indexPath.row == 0){
+        cell.title.text = @"비비유아이뷰";
+        cell.subTitle.text = @"BBUIView";
+    }
+    else if(indexPath.row == 1){
         cell.title.text = @"비비유아이레이블";
         cell.subTitle.text = @"BBUILabel";
     }
+    else if(indexPath.row == 2){
+        cell.title.text = @"비비유아이버튼";
+        cell.subTitle.text = @"BBUILabel";
+    }
+        
     else{
         cell.title.text = @"Title Text";
         cell.subTitle.text = @"Sub Title Text";
@@ -112,8 +122,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if(indexPath.row == 0){
+        BBUiViewController *buvc = [[BBUiViewController alloc]init];
+        [self.navigationController pushViewController:buvc animated:YES];
+    }
+    else if(indexPath.row == 1){
         LabelViewController *lvc = [[LabelViewController alloc]init];
         [self.navigationController pushViewController:lvc animated:YES];
+    }
+    else if(indexPath.row == 2){
+        BBUIButtonViewController *buvb = [[BBUIButtonViewController alloc]init];
+        [self.navigationController pushViewController:buvb animated:YES];
     }
 }
 

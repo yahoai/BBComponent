@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1334C67C1A24607B00D8F89D /* BBUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1334C67B1A24607B00D8F89D /* BBUiViewController.m */; };
+		1334C67F1A24650E00D8F89D /* BBUIButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1334C67E1A24650E00D8F89D /* BBUIButtonViewController.m */; };
 		13772BF21A2316C7004BC58F /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13772BF11A2316C7004BC58F /* LabelViewController.m */; };
 		137CB69A1A0CB14D00536FBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6991A0CB14D00536FBD /* main.m */; };
 		137CB69D1A0CB14D00536FBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB69C1A0CB14D00536FBD /* AppDelegate.m */; };
@@ -32,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1334C67A1A24607B00D8F89D /* BBUiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBUiViewController.h; path = ViewContoller/BBUiViewController.h; sourceTree = "<group>"; };
+		1334C67B1A24607B00D8F89D /* BBUiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBUiViewController.m; path = ViewContoller/BBUiViewController.m; sourceTree = "<group>"; };
+		1334C67D1A24650E00D8F89D /* BBUIButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBUIButtonViewController.h; path = ViewContoller/BBUIButtonViewController.h; sourceTree = "<group>"; };
+		1334C67E1A24650E00D8F89D /* BBUIButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBUIButtonViewController.m; path = ViewContoller/BBUIButtonViewController.m; sourceTree = "<group>"; };
 		13772BF01A2316C7004BC58F /* LabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelViewController.h; path = ViewContoller/LabelViewController.h; sourceTree = "<group>"; };
 		13772BF11A2316C7004BC58F /* LabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelViewController.m; path = ViewContoller/LabelViewController.m; sourceTree = "<group>"; };
 		137CB6941A0CB14D00536FBD /* BBColorComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBColorComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +87,10 @@
 			children = (
 				13772BF01A2316C7004BC58F /* LabelViewController.h */,
 				13772BF11A2316C7004BC58F /* LabelViewController.m */,
+				1334C67A1A24607B00D8F89D /* BBUiViewController.h */,
+				1334C67B1A24607B00D8F89D /* BBUiViewController.m */,
+				1334C67D1A24650E00D8F89D /* BBUIButtonViewController.h */,
+				1334C67E1A24650E00D8F89D /* BBUIButtonViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -274,10 +284,12 @@
 				137CB6C71A0CE45200536FBD /* BBControl.m in Sources */,
 				137CB69D1A0CB14D00536FBD /* AppDelegate.m in Sources */,
 				137CB69A1A0CB14D00536FBD /* main.m in Sources */,
+				1334C67F1A24650E00D8F89D /* BBUIButtonViewController.m in Sources */,
 				137CB6C11A0CC0CF00536FBD /* BBComponent.m in Sources */,
 				137CB6C41A0CDD4F00536FBD /* BBColor.m in Sources */,
 				13ADF2211A22FF43003FE86D /* Cell.m in Sources */,
 				13772BF21A2316C7004BC58F /* LabelViewController.m in Sources */,
+				1334C67C1A24607B00D8F89D /* BBUiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

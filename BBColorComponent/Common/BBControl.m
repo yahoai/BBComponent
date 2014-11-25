@@ -31,28 +31,23 @@
     [BBComponent getBBComponent].timer = nil;
 }
 
-+(void)changeColor:(BOOL)keyChange{
-    if(keyChange)
-        [BBColor setColorKey];
++(void)changeColor{
+    [BBColor setColorKey];
     
     NSArray *bbViewArray = [BBComponent getBBComponent].componentArray;
 
-    NSLog(@"%d",bbViewArray.count);
+//    NSLog(@"%d",bbViewArray.count);
     for(BBUIView *view in bbViewArray){
-        [self animateFromType:view.BBColorType view:view animate:keyChange];
+        [self animateFromType:view.BBColorType view:view];
     }
 }
 
-+(void)setNewColor:(id)delegate{
-    [self changeColor:NO];
-}
 
 //타입에 따른 배경&텍스트 색상 에니메이트
-+ (void)animateFromType:(BBColorType )type view:(id)view animate:(BOOL)animate{
++ (void)animateFromType:(BBColorType )type view:(id)view{
     int intervalTime = 2;
-    if(animate)
-        intervalTime = 2;
     switch (type) {
+        case BBColorLineView:
         case BBColorBackground:{
             BBUIView *bbView = (BBUIView *)view;
             [UIView animateWithDuration:intervalTime animations:^{

@@ -107,7 +107,7 @@
 + (BBUIView *)makeView:(CGRect)frame backgroundColor:(UIColor *)backgroundColor  BBColorType:(BBColorType)type;
 + (BBUIAlertView *)makeAlertView:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor msg:(NSString *)msg msgColor:(UIColor *)msgColor cancelButton:(NSString *)cancelButton cancelButtonColor:(UIColor *)cancelButtonColor cancelButtonTextColor:(UIColor *)cancelButtonTextColor otherButton:(NSString *)otherButtun otherButtonColor:(UIColor *)otherButtonColor otherButtonTextColor:(UIColor *)otherButtonTextColor;
 + (BBUINaviView *)makeNaviView:(CGRect)frame backgroundColor:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor delegate:(id)delegate;
-+ (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font  BBColorType:(BBColorType)type;
++ (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor highlight:(BOOL)highlight text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font  BBColorType:(BBColorType)type;
 
 @end
 

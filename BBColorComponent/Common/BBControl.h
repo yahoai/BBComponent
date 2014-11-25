@@ -13,7 +13,7 @@
 + (void)getViewList;
 + (void)autoChangeStart;
 + (void)stop;
-+ (void)changeColor:(BOOL)keyChange;
-+ (void)setNewColor:(id)delegate;
++ (void)changeColor;
+
 + (void)removeNoUseViews:(UIViewController *)delegate;
 @end

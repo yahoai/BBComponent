@@ -93,6 +93,9 @@
         case BBColorAlertOtherButtonTItle:
             data = [self getUserDefault:BBCOLOR_ALERT_OTHER_TITLE];
             break;
+        case BBColorLineView:
+            data = [self getUserDefault:BBCOLOR_LINE_VIEW];
+            break;
             
         default:
             break;
@@ -111,8 +114,10 @@
 
 + (NSDictionary *)getColorCombination:(float)key{
     NSDictionary *combination = [[NSDictionary alloc]init];
-    UIColor *backGroundColor,*buttonTitleColor,*buttonBackgroundColor,*naviBackgroundColor,*naviButtonTitleColor,*naviButtonBackgroundColor,*naviTitleColor,*normalTextColor,*titleColor,*alertBackgroundColor,*alertNormalText,*alertTitleText,*alertCacncelBackgroundColor,*alertCancelTitleColor,*alertOtherBackgroundColor,*alertOtherTitleColor;
-    NSData *backGroundColorData,*buttonTitleColorData,*buttonBackgroundColorData,*naviBackgroundColorData,*naviButtonTitleColorData,*naviButtonBackgroundColorData,*naviTitleColorData,*normalTextColorData,*titleColorData,*alertBackgroundColorData,*alertNormalTextData,*alertTitleTextData,*alertCancelBackgroundColorData,*alertCancelTitleColorData,*alertOtherBackgroundColorData,*alertOtherTitleColorData;
+    
+    UIColor *backGroundColor,*buttonTitleColor,*buttonBackgroundColor,*naviBackgroundColor,*naviButtonTitleColor,*naviButtonBackgroundColor,*naviTitleColor,*normalTextColor,*titleColor,*alertBackgroundColor,*alertNormalText,*alertTitleText,*alertCacncelBackgroundColor,*alertCancelTitleColor,*alertOtherBackgroundColor,*alertOtherTitleColor,*lineViewColor;
+    
+    NSData *backGroundColorData,*buttonTitleColorData,*buttonBackgroundColorData,*naviBackgroundColorData,*naviButtonTitleColorData,*naviButtonBackgroundColorData,*naviTitleColorData,*normalTextColorData,*titleColorData,*alertBackgroundColorData,*alertNormalTextData,*alertTitleTextData,*alertCancelBackgroundColorData,*alertCancelTitleColorData,*alertOtherBackgroundColorData,*alertOtherTitleColorData,*lineViewColorData;
     
     if(key == 1){
         backGroundColor = UIColorFromRGB(0xffffff);
@@ -130,7 +135,7 @@
         alertCancelTitleColor = COLOR_FFFFFF;
         alertOtherBackgroundColor = UIColorFromRGB(0x33B2E3);
         alertOtherTitleColor = COLOR_FFFFFF;
-        
+        lineViewColor = UIColorFromRGB(0x33B2E3);
     }
     
     if(key == 2){
@@ -150,7 +155,7 @@
         alertCancelTitleColor = COLOR_FFFFFF;
         alertOtherBackgroundColor = UIColorFromRGB(0xFF5A5F);
         alertOtherTitleColor = COLOR_FFFFFF;
-
+        lineViewColor = UIColorFromRGB(0xD33C3A);
     }
     
     if(key == 3){
@@ -170,7 +175,7 @@
         alertCancelTitleColor = COLOR_FFFFFF;
         alertOtherBackgroundColor = UIColorFromRGB(0xFF5A5F);
         alertOtherTitleColor = COLOR_FFFFFF;
-
+        lineViewColor = UIColorFromRGB(0xd5f0c0);
     }
     
     
@@ -194,6 +199,8 @@
     alertCancelBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:alertCacncelBackgroundColor];
     alertCancelTitleColorData = [NSKeyedArchiver archivedDataWithRootObject:alertCancelTitleColor];
     
+    lineViewColorData = [NSKeyedArchiver archivedDataWithRootObject:lineViewColor];
+    
     combination = @{
                     BBCOLOR_BACKGROUND: backGroundColorData,
                     BBCOLOR_BUTTON_BACKGROUND:buttonBackgroundColorData,
@@ -210,7 +217,8 @@
                     BBCOLOR_ALERT_CANCEL_BACKGROUND:alertCancelBackgroundColorData,
                     BBCOLOR_ALERT_CANCEL_TITLE:alertCancelTitleColorData,
                     BBCOLOR_ALERT_OTHER_BACKGROUND:alertOtherBackgroundColorData,
-                    BBCOLOR_ALERT_OTHER_TITLE:alertOtherTitleColorData
+                    BBCOLOR_ALERT_OTHER_TITLE:alertOtherTitleColorData,
+                    BBCOLOR_LINE_VIEW:lineViewColorData
                     };
     
     NSLog(@"get combination");
@@ -236,6 +244,7 @@
     [self setUserDefault:BBCOLOR_ALERT_CANCEL_TITLE value:colorCombination[BBCOLOR_ALERT_CANCEL_TITLE]];
     [self setUserDefault:BBCOLOR_ALERT_OTHER_BACKGROUND value:colorCombination[BBCOLOR_ALERT_OTHER_BACKGROUND]];
     [self setUserDefault:BBCOLOR_ALERT_OTHER_TITLE value:colorCombination[BBCOLOR_ALERT_OTHER_TITLE]];
+    [self setUserDefault:BBCOLOR_LINE_VIEW value:colorCombination[BBCOLOR_LINE_VIEW]];
     
 }
 
