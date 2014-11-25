@@ -12,6 +12,8 @@
 #import "LabelViewController.h"
 #import "BBUiViewController.h"
 #import "BBUIButtonViewController.h"
+#import "BBUIAlertViewController.h"
+
 @interface ViewController () <BBUINaviViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     BBUITableView *table;
 }
@@ -69,7 +71,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,6 +101,10 @@
     else if(indexPath.row == 2){
         cell.title.text = @"비비유아이버튼";
         cell.subTitle.text = @"BBUILabel";
+    }
+    else if(indexPath.row == 3){
+        cell.title.text = @"비비유아이경고창";
+        cell.subTitle.text = @"BBUIAlertView";
     }
         
     else{
@@ -132,6 +138,10 @@
     else if(indexPath.row == 2){
         BBUIButtonViewController *buvb = [[BBUIButtonViewController alloc]init];
         [self.navigationController pushViewController:buvb animated:YES];
+    }
+    else if(indexPath.row == 3){
+        BBUIAlertViewController *buavc = [[BBUIAlertViewController alloc]init];
+        [self.navigationController pushViewController:buavc animated:YES];
     }
 }
 

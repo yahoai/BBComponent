@@ -23,10 +23,10 @@
     [naviView.leftBtn setTitle:@"BACK" forState:UIControlStateNormal];
     [naviView.rightBtn setTitle:@"색 변경" forState:UIControlStateNormal];
     
-    BBUIButton *btn = [BBComponent makeButtonForCustom:(CGRect){10,100,150,20} backGroundColor:COLOR_000000 highlight:YES text:@"BBUIBUtton" textColor:COLOR_000000 font:DEFAULT_FONT_20_BOLD BBColorType:BBColorButton];
+    BBUIButton *btn = [BBComponent makeButtonForCustom:(CGRect){10,100,150,30} backGroundColor:COLOR_000000 highlight:YES text:@"BBUIButton" textColor:COLOR_000000 font:DEFAULT_FONT_20_BOLD BBColorType:BBColorButton];
     
     
-    BBUILabel *textLabel = [BBComponent makeLabel:(CGRect){10,130,[BBComponent getsSreenWidth],140} backgroundColor:COLOR_000000
+    BBUILabel *textLabel = [BBComponent makeLabel:(CGRect){10,140,[BBComponent getsSreenWidth],140} backgroundColor:COLOR_000000
                                              text:@"Button 종류\n유형에 맞춰서 사용하세요.\n\nBBColorButton\nBBColorNaviButton(Default)\nBBColorAlertCancelButton(Default)\nBBColorAlertOtherButton(Default)"
                                         textColor:COLOR_000000
                                         textAlign:NSTextAlignmentLeft

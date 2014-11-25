@@ -51,7 +51,8 @@ typedef NS_ENUM(NSInteger, BBColorType){
     BBColorButtonHighLight,
     BBColorNaviButtonHighLight,
     BBColorAlertCancelHighLight,
-    BBColorAlertOtherHighLight,
+    BBColorAlertOtherHighLight=25,
+    BBColorAlertOverlay
     
 };
 
@@ -76,6 +77,7 @@ typedef NS_ENUM(NSInteger, BBColorType){
 #define BBCOLOR_ALERT_OTHER_BACKGROUND          @"BBCOLOR_ALERT_OTHER_BACKGROUND"
 #define BBCOLOR_ALERT_OTHER_TITLE               @"BBCOLOR_ALERT_OTHER_TITLE"
 #define BBCOLOR_LINE_VIEW                       @"BBCOLOR_LINE_VIEW"
+#define BBCOLOR_ALERT_OVERLAY                   @"BBCOLOR_ALERT_OVERLAY"
 
 #define COLOR_KEY                   @"COLOR_KEY"
 #define COLOR_KEY_TIME              @"COLOR_KEY_TIME"

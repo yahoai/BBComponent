@@ -160,7 +160,7 @@ static BBComponent *s_BBComponent;
     [button setTitle:text            forState:UIControlStateNormal];
     [button setTitleColor:(key > 0) ? [BBColor getColor:titleColorType] : textColor  forState:UIControlStateNormal];
     [button setHighlighted:highlight];
-    
+    [button.layer setCornerRadius:5];
     
     [[button titleLabel] setFont:font];
     
@@ -169,11 +169,11 @@ static BBComponent *s_BBComponent;
 
 
 //alertView
-+ (BBUIAlertView *)makeAlertView:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor msg:(NSString *)msg msgColor:(UIColor *)msgColor cancelButton:(NSString *)cancelButton cancelButtonColor:(UIColor *)cancelButtonColor cancelButtonTextColor:(UIColor *)cancelButtonTextColor otherButton:(NSString *)otherButtun otherButtonColor:(UIColor *)otherButtonColor otherButtonTextColor:(UIColor *)otherButtonTextColor{
++ (BBUIAlertView *)makeAlertView:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor msg:(NSString *)msg msgColor:(UIColor *)msgColor cancelButton:(NSString *)cancelButton cancelButtonColor:(UIColor *)cancelButtonColor cancelButtonTextColor:(UIColor *)cancelButtonTextColor otherButton:(NSString *)otherButtun otherButtonColor:(UIColor *)otherButtonColor otherButtonTextColor:(UIColor *)otherButtonTextColor delegate:(id)delegate{
     
     float key = [BBColor getColorKey];
     
-    BBUIAlertView *alert = [[BBUIAlertView alloc]initWithFrame:(CGRect){0,0,[BBComponent getsSreenWidth]-80,0}];
+    BBUIAlertView *alert = [[BBUIAlertView alloc]initWithFrame:(CGRect){0,0,[BBComponent getsSreenWidth]-80,0} delegate:delegate];
     alert.BBColorType = BBColorAlertView;
     
     NSAttributedString *msgString = [[NSAttributedString alloc]initWithString:msg attributes:@{NSFontAttributeName:DEFAULT_FONT_12}];
@@ -199,9 +199,14 @@ static BBComponent *s_BBComponent;
     [alert.otherBtn setBackgroundColor:(key > 0) ? [BBColor getColor:BBColorButtonBackground] : otherButtonTextColor];
     [alert.otherBtn setTitleColor:(key > 0) ? [BBColor getColor:BBColorButtonTitle] : otherButtonColor forState:UIControlStateNormal];
     
+    float height =[BBComponent getY:alert.otherBtn]+20;
+    if(otherButtun == nil){
+        height =[BBComponent getY:alert.cancelBtn]+20;
+        alert.otherBtn.hidden = YES;
+    }
     
-    alert.backgroundView.frame = CGRectMake(0, 0, alert.frame.size.width, [BBComponent getY:alert.otherBtn]+20);
-    alert.frame = CGRectMake(0, 0, alert.frame.size.width, [BBComponent getY:alert.otherBtn]+20);
+    alert.backgroundView.frame = CGRectMake(0, 0, alert.frame.size.width, height);
+    alert.frame = CGRectMake(0, 0, alert.frame.size.width, height);
     [BBComponent setViewCenter:nil centerView:alert];
 
     
@@ -291,10 +296,13 @@ static BBComponent *s_BBComponent;
 
 
 @implementation BBUIAlertView
-
--(instancetype)initWithFrame:(CGRect)frame{
+@synthesize delegate = _delegate;
+-(instancetype)initWithFrame:(CGRect)frame delegate:(id)delegate{
     self = [super initWithFrame:frame];
     if(self){
+        _delegate = delegate;
+        self.overlayView = [BBComponent makeView:CGRectMake(0, 0, [BBComponent getsSreenWidth], [BBComponent getsSreenHeight]) backgroundColor:COLOR_000000 BBColorType:BBColorAlertOverlay];
+
         
         self.backgroundView = [BBComponent makeView:CGRectMake(0, 0, [BBComponent getsSreenWidth]-80, 0) backgroundColor:COLOR_FFFFFF BBColorType:BBColorAlertBackground];
         self.title = [BBComponent makeLabel:CGRectMake(20, 20, self.backgroundView.frame.size.width-40, 20) backgroundColor:COLOR_CLEAR text:@"Title" textColor:COLOR_000000 textAlign:NSTextAlignmentCenter font:DEFAULT_FONT_20_BOLD BBColorType:BBColorAlertTitleText];
@@ -305,12 +313,19 @@ static BBComponent *s_BBComponent;
         
         self.cancelBtn = [BBComponent makeButtonForCustom:CGRectMake(20, [BBComponent getY:self.message]+20, self.backgroundView.frame.size.width-40, 40) backGroundColor:COLOR_CLEAR highlight:YES text:@"Cancel Buttton" textColor:COLOR_000000 font:DEFAULT_FONT_15 BBColorType:BBColorAlertCancelButton];
         
+        self.cancelBtn.tag = 0;
+        [self.cancelBtn addTarget:self action:@selector(selectedBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.otherBtn = [BBComponent makeButtonForCustom:CGRectMake(20, [BBComponent getY:self.cancelBtn]+10, self.backgroundView.frame.size.width-40, 40) backGroundColor:COLOR_CLEAR highlight:YES  text:@"Other Button" textColor:COLOR_000000 font:DEFAULT_FONT_15 BBColorType:BBColorAlertOtherButton];
+        
+        self.otherBtn.tag = 1;
+        [self.otherBtn addTarget:self action:@selector(selectedBtn:) forControlEvents:UIControlEventTouchUpInside];
         
         self.backgroundView.layer.cornerRadius = 5;
         self.cancelBtn.layer.cornerRadius = 5;
         self.otherBtn.layer.cornerRadius = 5;
         
+        [self addSubview:self.overlayView];
         [self addSubview:self.backgroundView];
         [self.backgroundView addSubview:self.title];
         [self.backgroundView addSubview:self.message];
@@ -323,9 +338,9 @@ static BBComponent *s_BBComponent;
 }
 
 
--(void)selectBtn:(BBUIButton *)sender{
-    if([self.delegate respondsToSelector:@selector(selectBtn:)])
-        [self.delegate selectedBtn:sender];
+-(void)selectedBtn:(BBUIButton *)sender{
+    if([_delegate respondsToSelector:@selector(selectedBtn:)])
+        [_delegate selectedBtn:sender];
 }
 
 @end

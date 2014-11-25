@@ -33,6 +33,7 @@
 
 +(void)changeColor{
     [BBColor setColorKey];
+    [BBControl getViewList];
     
     NSArray *bbViewArray = [BBComponent getBBComponent].componentArray;
 
@@ -133,8 +134,10 @@
             [BBControl checkSubviews:view.subviews[i] remove:remove];
             
             if(![view.subviews[i] isKindOfClass:[BBUITableView class]]){
-                if(!remove)
-                    [[BBComponent getBBComponent].componentArray addObject:view.subviews[i]];
+                if(!remove){
+                    if(![[BBComponent getBBComponent].componentArray isEqual:view.subviews[i]])
+                        [[BBComponent getBBComponent].componentArray addObject:view.subviews[i]];
+                }
                 else
                     [[BBComponent getBBComponent].componentArray removeObject:view.subviews[i]];
             }
