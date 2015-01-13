@@ -52,8 +52,15 @@ typedef NS_ENUM(NSInteger, BBColorType){
     BBColorNaviButtonHighLight,
     BBColorAlertCancelHighLight,
     BBColorAlertOtherHighLight=25,
-    BBColorAlertOverlay
-    
+    BBColorAlertOverlay,
+    BBColorTextFieldBackground,
+    BBColorTextFieldText,
+    BBColorTextViewBackground,
+    BBColorTextViewText=30,
+    BBColorTextFieldBorder,
+    BBColorTextViewBorder,
+    BBColorTextField,
+    BBColorTextView,
 };
 
 
@@ -78,6 +85,13 @@ typedef NS_ENUM(NSInteger, BBColorType){
 #define BBCOLOR_ALERT_OTHER_TITLE               @"BBCOLOR_ALERT_OTHER_TITLE"
 #define BBCOLOR_LINE_VIEW                       @"BBCOLOR_LINE_VIEW"
 #define BBCOLOR_ALERT_OVERLAY                   @"BBCOLOR_ALERT_OVERLAY"
+#define BBCOLOR_TEXTVIEW_BACKGROND              @"BBCOLOR_TEXTVIEW_BACKGROND"
+#define BBCOLOR_TEXTVIEW_TEXT                   @"BBCOLOR_TEXTVIEW_TEXT"
+#define BBCOLOR_TEXTVIEW_BORDER                 @"BBCOLOR_TEXTVIEW_BORDER"
+#define BBCOLOR_TEXTFIELD_BACKGROUND            @"BBCOLOR_TEXTFIELD_BACKGROUND"
+#define BBCOLOR_TEXTFIELD_TEXT                  @"BBCOLOR_TEXTFIELD_TEXT"
+#define BBCOLOR_TEXTFIELD_BORDER                @"BBCOLOR_TEXTFIELD_BORDER"
+
 
 #define COLOR_KEY                   @"COLOR_KEY"
 #define COLOR_KEY_TIME              @"COLOR_KEY_TIME"

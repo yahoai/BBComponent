@@ -77,7 +77,7 @@
             break;
         case BBColorAlertNormalText:
             data = [self getUserDefault:BBCOLOR_ALERT_NORMARTEXT];
-        break;
+            break;
         case BBColorAlertTitleText:
             data = [self getUserDefault:BBCOLOR_ALERT_TITLETEXT];
             break;
@@ -96,6 +96,25 @@
         case BBColorLineView:
             data = [self getUserDefault:BBCOLOR_LINE_VIEW];
             break;
+        case BBColorTextFieldBackground:
+            data = [self getUserDefault:BBCOLOR_TEXTFIELD_BACKGROUND];
+            break;
+        case BBColorTextFieldBorder:
+            data = [self getUserDefault:BBCOLOR_TEXTFIELD_BORDER];
+            break;
+        case BBColorTextFieldText:
+            data = [self getUserDefault:BBCOLOR_TEXTFIELD_TEXT];
+            break;
+        case BBColorTextViewBackground:
+            data = [self getUserDefault:BBCOLOR_TEXTVIEW_BACKGROND];
+            break;
+        case BBColorTextViewBorder:
+            data = [self getUserDefault:BBCOLOR_TEXTVIEW_BORDER];
+            break;
+        case BBColorTextViewText:
+            data = [self getUserDefault:BBCOLOR_TEXTVIEW_TEXT];
+            break;
+            
             
         default:
             break;
@@ -106,7 +125,7 @@
     if(data != nil)
         color = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-//    if(BBColorTitleText == type)
+//    if(BBColorTextFieldBackground == type)
 //        NSLog(@"%d: %@",type,color);
 
     return color;
@@ -115,9 +134,9 @@
 + (NSDictionary *)getColorCombination:(float)key{
     NSDictionary *combination = [[NSDictionary alloc]init];
     
-    UIColor *backGroundColor,*buttonTitleColor,*buttonBackgroundColor,*naviBackgroundColor,*naviButtonTitleColor,*naviButtonBackgroundColor,*naviTitleColor,*normalTextColor,*titleColor,*alertBackgroundColor,*alertNormalText,*alertTitleText,*alertCacncelBackgroundColor,*alertCancelTitleColor,*alertOtherBackgroundColor,*alertOtherTitleColor,*lineViewColor;
+    UIColor *backGroundColor,*buttonTitleColor,*buttonBackgroundColor,*naviBackgroundColor,*naviButtonTitleColor,*naviButtonBackgroundColor,*naviTitleColor,*normalTextColor,*titleColor,*alertBackgroundColor,*alertNormalText,*alertTitleText,*alertCacncelBackgroundColor,*alertCancelTitleColor,*alertOtherBackgroundColor,*alertOtherTitleColor,*lineViewColor,*textFieldBackgroundColor,*textFieldBorderColor,*textFieldTextColor,*textViewBackgroundColor,*textViewBorderColor,*textViewTextColor;
     
-    NSData *backGroundColorData,*buttonTitleColorData,*buttonBackgroundColorData,*naviBackgroundColorData,*naviButtonTitleColorData,*naviButtonBackgroundColorData,*naviTitleColorData,*normalTextColorData,*titleColorData,*alertBackgroundColorData,*alertNormalTextData,*alertTitleTextData,*alertCancelBackgroundColorData,*alertCancelTitleColorData,*alertOtherBackgroundColorData,*alertOtherTitleColorData,*lineViewColorData;
+    NSData *backGroundColorData,*buttonTitleColorData,*buttonBackgroundColorData,*naviBackgroundColorData,*naviButtonTitleColorData,*naviButtonBackgroundColorData,*naviTitleColorData,*normalTextColorData,*titleColorData,*alertBackgroundColorData,*alertNormalTextData,*alertTitleTextData,*alertCancelBackgroundColorData,*alertCancelTitleColorData,*alertOtherBackgroundColorData,*alertOtherTitleColorData,*lineViewColorData,*textFieldBackgroundColorData,*textFieldBorderColorData,*textFieldTextColorData,*textViewBackgroundColorData,*textViewBorderColorData,*textViewTextColorData;
     
     if(key == 1){
         backGroundColor = UIColorFromRGB(0xffffff);
@@ -136,6 +155,12 @@
         alertOtherBackgroundColor = UIColorFromRGB(0x33B2E3);
         alertOtherTitleColor = COLOR_FFFFFF;
         lineViewColor = UIColorFromRGB(0x33B2E3);
+        textFieldBackgroundColor = UIColorFromRGB(0xf5f5f5);
+        textFieldBorderColor = UIColorFromRGB(0xdedede);
+        textFieldTextColor = UIColorFromRGB(0x666666);
+        textViewBackgroundColor = UIColorFromRGB(0xf5f5f5);
+        textViewBorderColor = UIColorFromRGB(0xdedede);
+        textViewTextColor = UIColorFromRGB(0x666666);
     }
     
     if(key == 2){
@@ -156,6 +181,12 @@
         alertOtherBackgroundColor = UIColorFromRGB(0xFF5A5F);
         alertOtherTitleColor = COLOR_FFFFFF;
         lineViewColor = UIColorFromRGB(0xD33C3A);
+        textFieldBackgroundColor = UIColorFromRGB(0xFAC1BF);
+        textFieldBorderColor = UIColorFromRGB(0xFAC1BF);
+        textFieldTextColor = UIColorFromRGB(0xffffff);
+        textViewBackgroundColor = UIColorFromRGB(0xFAC1BF);
+        textViewBorderColor = UIColorFromRGB(0xFAC1BF);
+        textViewTextColor = UIColorFromRGB(0xffffff);
     }
     
     if(key == 3){
@@ -176,6 +207,12 @@
         alertOtherBackgroundColor = UIColorFromRGB(0xFF5A5F);
         alertOtherTitleColor = COLOR_FFFFFF;
         lineViewColor = UIColorFromRGB(0xd5f0c0);
+        textFieldBackgroundColor = UIColorFromRGB(0xffffff);
+        textFieldBorderColor = UIColorFromRGB(0xffffff);
+        textFieldTextColor = UIColorFromRGB(0x91C767);
+        textViewBackgroundColor = UIColorFromRGB(0xffffff);
+        textViewBorderColor = UIColorFromRGB(0xffffff);
+        textViewTextColor = UIColorFromRGB(0x91C767);
     }
     
     
@@ -201,6 +238,14 @@
     
     lineViewColorData = [NSKeyedArchiver archivedDataWithRootObject:lineViewColor];
     
+    textFieldBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:textFieldBackgroundColor];
+    textFieldBorderColorData = [NSKeyedArchiver archivedDataWithRootObject:textFieldBorderColor];
+    textFieldTextColorData = [NSKeyedArchiver archivedDataWithRootObject:textFieldTextColor];
+    
+    textViewBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:textViewBackgroundColor];
+    textViewBorderColorData = [NSKeyedArchiver archivedDataWithRootObject:textViewBorderColor];
+    textViewTextColorData = [NSKeyedArchiver archivedDataWithRootObject:textViewTextColor];
+    
     combination = @{
                     BBCOLOR_BACKGROUND: backGroundColorData,
                     BBCOLOR_BUTTON_BACKGROUND:buttonBackgroundColorData,
@@ -218,7 +263,14 @@
                     BBCOLOR_ALERT_CANCEL_TITLE:alertCancelTitleColorData,
                     BBCOLOR_ALERT_OTHER_BACKGROUND:alertOtherBackgroundColorData,
                     BBCOLOR_ALERT_OTHER_TITLE:alertOtherTitleColorData,
-                    BBCOLOR_LINE_VIEW:lineViewColorData
+                    BBCOLOR_LINE_VIEW:lineViewColorData,
+                    BBCOLOR_TEXTFIELD_BACKGROUND:textFieldBackgroundColorData,
+                    BBCOLOR_TEXTFIELD_BORDER :textFieldBorderColorData,
+                    BBCOLOR_TEXTFIELD_TEXT:textFieldTextColorData,
+                    BBCOLOR_TEXTVIEW_BACKGROND:textViewBackgroundColorData,
+                    BBCOLOR_TEXTVIEW_BORDER:textViewBorderColorData,
+                    BBCOLOR_TEXTVIEW_TEXT:textViewTextColorData
+                    
                     };
     
     NSLog(@"get combination");
@@ -246,6 +298,12 @@
     [self setUserDefault:BBCOLOR_ALERT_OTHER_TITLE value:colorCombination[BBCOLOR_ALERT_OTHER_TITLE]];
     [self setUserDefault:BBCOLOR_LINE_VIEW value:colorCombination[BBCOLOR_LINE_VIEW]];
     
+    [self setUserDefault:BBCOLOR_TEXTFIELD_BACKGROUND value:colorCombination[BBCOLOR_TEXTFIELD_BACKGROUND]];
+    [self setUserDefault:BBCOLOR_TEXTFIELD_BORDER value:colorCombination[BBCOLOR_TEXTFIELD_BORDER]];
+    [self setUserDefault:BBCOLOR_TEXTFIELD_TEXT value:colorCombination[BBCOLOR_TEXTFIELD_TEXT]];
+    [self setUserDefault:BBCOLOR_TEXTVIEW_BACKGROND value:colorCombination[BBCOLOR_TEXTVIEW_BACKGROND]];
+    [self setUserDefault:BBCOLOR_TEXTVIEW_BORDER value:colorCombination[BBCOLOR_TEXTVIEW_BORDER]];
+    [self setUserDefault:BBCOLOR_TEXTVIEW_TEXT value:colorCombination[BBCOLOR_TEXTVIEW_TEXT]];
 }
 
 @end

@@ -12,17 +12,19 @@
 
 
 //색 오토 체인지 시작
-+(void)autoChangeStart {
++(void)BBCompoentStartWithAutoStart:(BOOL)start {
     float key = [BBColor getColorKey];
-    NSLog(@"%f",key);
+//    NSLog(@"%f",key);
     if(key == 0)
         [BBColor setColorKey];
     
-//    [BBComponent getBBComponent].timer = [NSTimer scheduledTimerWithTimeInterval:15.0
-//                                     target:self
-//                                   selector:@selector(changeColor)
-//                                   userInfo:nil
-//                                    repeats:YES];
+    if(start == YES){
+        [BBComponent getBBComponent].timer = [NSTimer scheduledTimerWithTimeInterval:15.0
+                                         target:self
+                                       selector:@selector(changeColor)
+                                       userInfo:nil
+                                        repeats:YES];
+    }
 }
 
 //오토체인지 스탑
@@ -108,7 +110,24 @@
             } completion:nil];
             break;
         }
-        
+        case BBColorTextField:{
+            BBUITextField *component = (BBUITextField *)view;
+            [UIView animateWithDuration:intervalTime animations:^{
+                component.textColor = [BBColor getColor:BBColorTextFieldText];
+                component.backgroundColor = [BBColor getColor:BBColorTextFieldBackground];
+                component.layer.borderColor = [[BBColor getColor:BBColorTextFieldBorder] CGColor];
+            }];
+            break;
+        }
+            
+        case BBColorTextView:{
+            BBUITextView *component = (BBUITextView *)view;
+            [UIView animateWithDuration:intervalTime animations:^{
+                component.textColor = [BBColor getColor:BBColorTextViewText];
+                component.backgroundColor = [BBColor getColor:BBColorTextViewBackground];
+                component.layer.borderColor = [[BBColor getColor:BBColorTextViewBorder] CGColor];
+            }];
+        }
         default:
             break;
     }

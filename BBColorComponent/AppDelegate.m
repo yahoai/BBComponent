@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
     
-    [BBControl autoChangeStart];
+    [BBControl BBCompoentStartWithAutoStart:NO];
     ViewController *viewContoller = [[ViewController alloc]init];
     
     UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:viewContoller];
@@ -42,7 +42,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [BBControl autoChangeStart];
+    [BBControl BBCompoentStartWithAutoStart:NO];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

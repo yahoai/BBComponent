@@ -13,6 +13,8 @@
 #import "BBUiViewController.h"
 #import "BBUIButtonViewController.h"
 #import "BBUIAlertViewController.h"
+#import "BBUITextFieldViewController.h"
+#import "BBUITextViewController.h"
 
 @interface ViewController () <BBUINaviViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     BBUITableView *table;
@@ -59,6 +61,11 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [BBComponent setViewDelegate:self];
+}
+
 
 #pragma mark -
 #pragma mark Table view data source
@@ -71,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 // Return the number of rows in the section.
-    return 4;
+    return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,6 +112,14 @@
     else if(indexPath.row == 3){
         cell.title.text = @"비비유아이경고창";
         cell.subTitle.text = @"BBUIAlertView";
+    }
+    else if(indexPath.row == 4){
+        cell.title.text = @"비비유아이글자입력공간";
+        cell.subTitle.text = @"BBUITextField";
+    }
+    else if(indexPath.row == 5){
+        cell.title.text = @"비비유아이글자입력창";
+        cell.subTitle.text = @"BBUITextView";
     }
         
     else{
@@ -142,6 +157,14 @@
     else if(indexPath.row == 3){
         BBUIAlertViewController *buavc = [[BBUIAlertViewController alloc]init];
         [self.navigationController pushViewController:buavc animated:YES];
+    }
+    else if(indexPath.row == 4){
+        BBUITextFieldViewController *butfcv = [[BBUITextFieldViewController alloc]init];
+        [self.navigationController pushViewController:butfcv animated:YES];
+    }
+    else if(indexPath.row == 5){
+        BBUITextViewController *butvc = [[BBUITextViewController alloc]init];
+        [self.navigationController pushViewController:butvc animated:YES];
     }
 }
 

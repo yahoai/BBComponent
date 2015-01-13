@@ -240,6 +240,38 @@ static BBComponent *s_BBComponent;
     return view;
     
 }
+
++ (BBUITextField *)makeTextField:(CGRect)frame backGroudColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor placeholder:(NSString *)placeholder borderColor:(UIColor *)borderColor borderSize:(float)borderSize delegate:(id)delegate{
+    
+    BBUITextField *textField = [[BBUITextField alloc]initWithFrame:frame];
+    textField.BBColorType = BBColorTextField;
+    float key = [BBColor getColorKey];
+    
+    textField.backgroundColor = (key > 0) ? [BBColor getColor:BBColorTextFieldBackground] : backgroundColor;
+    textField.textColor = (key > 0) ? [BBColor getColor:BBColorTextFieldText] : textColor;
+    textField.delegate = delegate;
+    textField.layer.borderColor  = (key > 0) ? [[BBColor getColor:BBColorTextFieldBorder] CGColor] : [textColor CGColor];
+    textField.layer.borderWidth = borderSize;
+    textField.placeholder = placeholder;
+    
+    return textField;
+}
+
++ (BBUITextView *)makeTextView:(CGRect)frame backGroudColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor borderColor:(UIColor *)borderColor borderSize:(float)borderSize delegate:(id)delagate{
+    
+    BBUITextView *textView = [[BBUITextView alloc]initWithFrame:frame];
+    textView.BBColorType = BBColorTextView;
+    float key = [BBColor getColorKey];
+    
+    textView.backgroundColor = (key > 0) ? [BBColor getColor:BBColorTextViewBackground] : backgroundColor;
+    textView.textColor = (key > 0) ? [BBColor getColor:BBColorTextViewText] : textColor;
+    textView.layer.borderColor = (key > 0) ? [[BBColor getColor:BBColorTextViewBorder] CGColor] : [textColor CGColor];
+    textView.layer.borderWidth = borderSize;
+
+    return textView;
+}
+
+
 @end
 
 
@@ -399,4 +431,38 @@ static BBComponent *s_BBComponent;
     return isBBComponent;
 }
 @end
+
+
+@implementation BBUITextField
+@synthesize isBBComponent,BBColorType;
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        isBBComponent = YES;
+    }
+    return self;
+}
+
+-(BOOL)getisBBComponent{
+    return isBBComponent;
+}
+@end
+
+
+
+@implementation BBUITextView
+@synthesize isBBComponent,BBColorType;
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        isBBComponent = YES;
+    }
+    return self;
+}
+
+-(BOOL)getisBBComponent{
+    return isBBComponent;
+}
+@end
+
 

@@ -21,6 +21,8 @@
 		137CB6C11A0CC0CF00536FBD /* BBComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6C01A0CC0CF00536FBD /* BBComponent.m */; };
 		137CB6C41A0CDD4F00536FBD /* BBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6C31A0CDD4F00536FBD /* BBColor.m */; };
 		137CB6C71A0CE45200536FBD /* BBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 137CB6C61A0CE45200536FBD /* BBControl.m */; };
+		139AF6C51A65085B0090DAC6 /* BBUITextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139AF6C41A65085B0090DAC6 /* BBUITextFieldViewController.m */; };
+		139AF6C81A65086D0090DAC6 /* BBUITextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139AF6C71A65086D0090DAC6 /* BBUITextViewController.m */; };
 		13ADF2211A22FF43003FE86D /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADF2201A22FF43003FE86D /* Cell.m */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,10 @@
 		137CB6C31A0CDD4F00536FBD /* BBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBColor.m; sourceTree = "<group>"; };
 		137CB6C51A0CE45200536FBD /* BBControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBControl.h; sourceTree = "<group>"; };
 		137CB6C61A0CE45200536FBD /* BBControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBControl.m; sourceTree = "<group>"; };
+		139AF6C31A65085B0090DAC6 /* BBUITextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBUITextFieldViewController.h; path = ViewContoller/BBUITextFieldViewController.h; sourceTree = "<group>"; };
+		139AF6C41A65085B0090DAC6 /* BBUITextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBUITextFieldViewController.m; path = ViewContoller/BBUITextFieldViewController.m; sourceTree = "<group>"; };
+		139AF6C61A65086D0090DAC6 /* BBUITextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBUITextViewController.h; path = ViewContoller/BBUITextViewController.h; sourceTree = "<group>"; };
+		139AF6C71A65086D0090DAC6 /* BBUITextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBUITextViewController.m; path = ViewContoller/BBUITextViewController.m; sourceTree = "<group>"; };
 		13ADF21F1A22FF43003FE86D /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cell.h; path = Cell/Cell.h; sourceTree = "<group>"; };
 		13ADF2201A22FF43003FE86D /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cell.m; path = Cell/Cell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +102,10 @@
 				1334C67E1A24650E00D8F89D /* BBUIButtonViewController.m */,
 				1334C6801A246C2B00D8F89D /* BBUIAlertViewController.h */,
 				1334C6811A246C2B00D8F89D /* BBUIAlertViewController.m */,
+				139AF6C31A65085B0090DAC6 /* BBUITextFieldViewController.h */,
+				139AF6C41A65085B0090DAC6 /* BBUITextFieldViewController.m */,
+				139AF6C61A65086D0090DAC6 /* BBUITextViewController.h */,
+				139AF6C71A65086D0090DAC6 /* BBUITextViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -286,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				137CB6A01A0CB14D00536FBD /* ViewController.m in Sources */,
+				139AF6C81A65086D0090DAC6 /* BBUITextViewController.m in Sources */,
 				137CB6C71A0CE45200536FBD /* BBControl.m in Sources */,
 				1334C6821A246C2B00D8F89D /* BBUIAlertViewController.m in Sources */,
 				137CB69D1A0CB14D00536FBD /* AppDelegate.m in Sources */,
@@ -295,6 +306,7 @@
 				137CB6C41A0CDD4F00536FBD /* BBColor.m in Sources */,
 				13ADF2211A22FF43003FE86D /* Cell.m in Sources */,
 				13772BF21A2316C7004BC58F /* LabelViewController.m in Sources */,
+				139AF6C51A65085B0090DAC6 /* BBUITextFieldViewController.m in Sources */,
 				1334C67C1A24607B00D8F89D /* BBUiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

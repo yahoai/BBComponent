@@ -88,6 +88,26 @@
 
 
 #pragma mark -
+#pragma mark BBUITextField
+
+@interface BBUITextField : UITextField
+@property(readonly) BOOL isBBComponent;
+@property (nonatomic) enum BBColorType BBColorType;
+-(BOOL)getisBBComponent;
+@end
+
+
+#pragma mark -
+#pragma mark BBUITextView
+
+@interface BBUITextView : UITextView
+@property(readonly) BOOL isBBComponent;
+@property (nonatomic) enum BBColorType BBColorType;
+-(BOOL)getisBBComponent;
+@end
+
+
+#pragma mark -
 #pragma mark BBComponent
 
 @interface BBComponent : NSObject
@@ -102,7 +122,8 @@
 + (float)getsSreenWidth;
 + (float)getsSreenHeight;
 + (void)setViewCenter:(UIView *)targetView centerView:(UIView *)centerView;
-
++ (CGFloat)getY:(UIView *)view;
++ (CGFloat)getX:(UIView *)view;
 
 
 + (BBUILabel *)makeLabel:(CGRect)frame backgroundColor:(UIColor *)backgroundColor text:(NSString *)text textColor:(UIColor *)textColor textAlign:(NSTextAlignment)textAlign font:(UIFont *)font BBColorType:(BBColorType)type;
@@ -110,6 +131,13 @@
 + (BBUIAlertView *)makeAlertView:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor msg:(NSString *)msg msgColor:(UIColor *)msgColor cancelButton:(NSString *)cancelButton cancelButtonColor:(UIColor *)cancelButtonColor cancelButtonTextColor:(UIColor *)cancelButtonTextColor otherButton:(NSString *)otherButtun otherButtonColor:(UIColor *)otherButtonColor otherButtonTextColor:(UIColor *)otherButtonTextColor delegate:(id)delegate;
 + (BBUINaviView *)makeNaviView:(CGRect)frame backgroundColor:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor delegate:(id)delegate;
 + (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor highlight:(BOOL)highlight text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font  BBColorType:(BBColorType)type;
+
++ (BBUITextField *)makeTextField:(CGRect)frame backGroudColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor placeholder:(NSString *)placeholder borderColor:(UIColor *)borderColor borderSize:(float)borderSize delegate:(id)delegate;
+
++ (BBUITextView *)makeTextView:(CGRect)frame backGroudColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor borderColor:(UIColor *)borderColor borderSize:(float)borderSize delegate:(id)delagate;
+
+
+
 
 @end
 

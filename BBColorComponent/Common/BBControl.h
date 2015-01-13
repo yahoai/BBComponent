@@ -11,7 +11,7 @@
 @interface BBControl : NSObject
 + (void)checkSubviews:(UIView *)view remove:(BOOL)remove;
 + (void)getViewList;
-+ (void)autoChangeStart;
++ (void)BBCompoentStartWithAutoStart:(BOOL)start;
 + (void)stop;
 + (void)changeColor;
 
