@@ -19,11 +19,11 @@
     BBUIView *backgroundView = [BBComponent makeView:(CGRect){0,20+45,[BBComponent getsSreenWidth],[BBComponent getsSreenHeight]-20-45} backgroundColor:COLOR_000000 BBColorType:BBColorBackground];
     
     
-    BBUINaviView *naviView = [BBComponent makeNaviView:(CGRect){0,0,[BBComponent getsSreenWidth],45+20} backgroundColor:COLOR_000000 title:@"BBUIButton" titleColor:COLOR_000000 delegate:self];
+    BBUINaviView *naviView = [BBComponent makeNaviView:(CGRect){0,0,[BBComponent getsSreenWidth],45+20} backgroundColor:COLOR_000000 title:@"BBUIButton" titleColor:COLOR_000000 bottomLineColor:COLOR_000000 delegate:self];
     [naviView.leftBtn setTitle:@"BACK" forState:UIControlStateNormal];
     [naviView.rightBtn setTitle:@"색 변경" forState:UIControlStateNormal];
     
-    BBUIButton *btn = [BBComponent makeButtonForCustom:(CGRect){10,100,150,30} backGroundColor:COLOR_000000 highlight:YES text:@"BBUIButton" textColor:COLOR_000000 font:DEFAULT_FONT_20_BOLD BBColorType:BBColorButton];
+    BBUIButton *btn = [BBComponent makeButtonForCustom:(CGRect){10,100,150,30} backGroundColor:COLOR_000000 borderColor:COLOR_CLEAR highlight:YES text:@"BBUIButton" textColor:COLOR_000000 font:DEFAULT_FONT_20_BOLD BBColorType:BBColorButton];
     
     
     BBUILabel *textLabel = [BBComponent makeLabel:(CGRect){10,140,[BBComponent getsSreenWidth],140} backgroundColor:COLOR_000000

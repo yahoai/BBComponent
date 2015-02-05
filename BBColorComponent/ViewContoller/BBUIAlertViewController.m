@@ -22,7 +22,7 @@
     BBUIView *backgroundView = [BBComponent makeView:(CGRect){0,20+45,[BBComponent getsSreenWidth],[BBComponent getsSreenHeight]-20-45} backgroundColor:COLOR_000000 BBColorType:BBColorBackground];
     
     
-    BBUINaviView *naviView = [BBComponent makeNaviView:(CGRect){0,0,[BBComponent getsSreenWidth],45+20} backgroundColor:COLOR_000000 title:@"BBUIButton" titleColor:COLOR_000000 delegate:self];
+    BBUINaviView *naviView = [BBComponent makeNaviView:(CGRect){0,0,[BBComponent getsSreenWidth],45+20} backgroundColor:COLOR_000000 title:@"BBUIButton" titleColor:COLOR_000000 bottomLineColor:COLOR_000000 delegate:self];
     [naviView.leftBtn setTitle:@"BACK" forState:UIControlStateNormal];
     [naviView.rightBtn setTitle:@"색 변경" forState:UIControlStateNormal];
     
@@ -30,7 +30,7 @@
     BBUILabel *titleLable = [BBComponent makeLabel:(CGRect){10,100,150,20} backgroundColor:COLOR_000000 text:@"BBUIAlertView" textColor:COLOR_000000 textAlign:NSTextAlignmentLeft font:DEFAULT_FONT_20_BOLD BBColorType:BBColorTitleText];
 
     
-    BBUIButton *btn = [BBComponent makeButtonForCustom:(CGRect){10,150,150,40} backGroundColor:COLOR_000000 highlight:YES text:@"버튼을 누르세요" textColor:COLOR_000000 font:DEFAULT_FONT_20_BOLD BBColorType:BBColorButton];
+    BBUIButton *btn = [BBComponent makeButtonForCustom:(CGRect){10,150,150,40} backGroundColor:COLOR_000000 borderColor:COLOR_CLEAR highlight:YES text:@"버튼을 누르세요" textColor:COLOR_000000 font:DEFAULT_FONT_20_BOLD BBColorType:BBColorButton];
     
     [btn addTarget:self action:@selector(onAlert) forControlEvents:UIControlEventTouchUpInside];
     
@@ -45,7 +45,7 @@
 }
 
 -(void)onAlert{
-    alert = [BBComponent makeAlertView:COLOR_000000 title:@"경고창" titleColor:COLOR_000000 msg:@"이것은 경고창입니다.\n어떻게 쓰는지는 다 알죠?" msgColor:COLOR_000000 cancelButton:@"아니요. 모르겠어요." cancelButtonColor:COLOR_000000 cancelButtonTextColor:COLOR_000000 otherButton:@"네. 압니다." otherButtonColor:COLOR_000000 otherButtonTextColor:COLOR_000000 delegate:self];
+    alert = [BBComponent makeAlertView:COLOR_000000 backgroundBorderColor:COLOR_CLEAR title:@"경고창" titleColor:COLOR_000000 msg:@"이것은 경고창입니다.\n어떻게 쓰는지는 다 알죠?" msgColor:COLOR_000000 cancelButton:@"아니요. 모르겠어요." cancelButtonColor:COLOR_000000 cancelButtonTextColor:COLOR_000000 otherButton:@"네. 압니다." otherButtonColor:COLOR_000000 otherButtonTextColor:COLOR_000000 delegate:self];
     alert.delegate = self;
     [self.view addSubview:alert];
 }

@@ -27,7 +27,7 @@
 
 - (void)drawView{
     
-    BBUINaviView *naviView = [BBComponent makeNaviView:CGRectMake(0,0, [BBComponent getsSreenWidth], 20+45) backgroundColor:COLOR_FFFFFF title:@"BBComponent" titleColor:COLOR_000000 delegate:self];
+    BBUINaviView *naviView = [BBComponent makeNaviView:CGRectMake(0,0, [BBComponent getsSreenWidth], 20+45) backgroundColor:COLOR_FFFFFF title:@"BBComponent" titleColor:COLOR_000000  bottomLineColor:COLOR_000000 delegate:self];
     naviView.leftBtn.hidden = YES;
     [naviView.rightBtn setTitle:@"색 변경" forState:UIControlStateNormal];
 

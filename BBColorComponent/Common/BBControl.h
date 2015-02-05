@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "BB.h"
 @interface BBControl : NSObject
 + (void)checkSubviews:(UIView *)view remove:(BOOL)remove;
 + (void)getViewList;
@@ -16,4 +17,6 @@
 + (void)changeColor;
 
 + (void)removeNoUseViews:(UIViewController *)delegate;
+
++ (void)selectColorCombination:(BBColorCombination)name;
 @end

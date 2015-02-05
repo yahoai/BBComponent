@@ -71,6 +71,7 @@
 
 @interface BBUINaviView : BBUIView
 @property (nonatomic,strong)BBUIView *backgroundView;
+@property (nonatomic,strong)BBUIView *bottomLine;
 @property (nonatomic,strong)BBUILabel *title;
 @property (nonatomic,strong)BBUIButton *leftBtn,*rightBtn;
 @property (nonatomic,weak)id <BBUINaviViewDelegate> delegate;
@@ -90,10 +91,10 @@
 #pragma mark -
 #pragma mark BBUITextField
 
-@interface BBUITextField : UITextField
-@property(readonly) BOOL isBBComponent;
-@property (nonatomic) enum BBColorType BBColorType;
--(BOOL)getisBBComponent;
+@interface BBUITextField : BBUIView
+@property (nonatomic,strong) BBUIView *backgroundView;
+@property (nonatomic,strong) UITextField *textField;
+-(instancetype)initWithFrame:(CGRect)frame delegate:(id)delegate;
 @end
 
 
@@ -114,6 +115,7 @@
 @property (nonatomic,assign) id delegate;
 @property (nonatomic,strong) NSMutableArray *componentArray;
 @property (nonatomic,strong) NSTimer *timer;
+@property float changeTime;
 +(BBComponent *)getBBComponent;
 +(void)setViewDelegate:(id)delegate;
 
@@ -128,9 +130,9 @@
 
 + (BBUILabel *)makeLabel:(CGRect)frame backgroundColor:(UIColor *)backgroundColor text:(NSString *)text textColor:(UIColor *)textColor textAlign:(NSTextAlignment)textAlign font:(UIFont *)font BBColorType:(BBColorType)type;
 + (BBUIView *)makeView:(CGRect)frame backgroundColor:(UIColor *)backgroundColor  BBColorType:(BBColorType)type;
-+ (BBUIAlertView *)makeAlertView:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor msg:(NSString *)msg msgColor:(UIColor *)msgColor cancelButton:(NSString *)cancelButton cancelButtonColor:(UIColor *)cancelButtonColor cancelButtonTextColor:(UIColor *)cancelButtonTextColor otherButton:(NSString *)otherButtun otherButtonColor:(UIColor *)otherButtonColor otherButtonTextColor:(UIColor *)otherButtonTextColor delegate:(id)delegate;
-+ (BBUINaviView *)makeNaviView:(CGRect)frame backgroundColor:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor delegate:(id)delegate;
-+ (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor highlight:(BOOL)highlight text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font  BBColorType:(BBColorType)type;
++ (BBUIAlertView *)makeAlertView:(UIColor *)backgroundColor backgroundBorderColor:(UIColor *)backgroundBorderColor title:(NSString *)title titleColor:(UIColor *)titleColor msg:(NSString *)msg msgColor:(UIColor *)msgColor cancelButton:(NSString *)cancelButton cancelButtonColor:(UIColor *)cancelButtonColor cancelButtonTextColor:(UIColor *)cancelButtonTextColor otherButton:(NSString *)otherButtun otherButtonColor:(UIColor *)otherButtonColor otherButtonTextColor:(UIColor *)otherButtonTextColor delegate:(id)delegate;
++ (BBUINaviView *)makeNaviView:(CGRect)frame backgroundColor:(UIColor *)backgroundColor title:(NSString *)title titleColor:(UIColor *)titleColor bottomLineColor:(UIColor *)bottomLineColor delegate:(id)delegate;
++ (BBUIButton *)makeButtonForCustom:(CGRect)frame backGroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor highlight:(BOOL)highlight text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font  BBColorType:(BBColorType)type;
 
 + (BBUITextField *)makeTextField:(CGRect)frame backGroudColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor placeholder:(NSString *)placeholder borderColor:(UIColor *)borderColor borderSize:(float)borderSize delegate:(id)delegate;
 

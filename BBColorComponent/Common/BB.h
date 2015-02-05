@@ -24,43 +24,60 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #pragma mark -
+#pragma mark 색상조합
+typedef NS_ENUM(NSInteger, BBColorCombination) {
+    DEFAULT_GREEN=1,
+    DEFAULT_BLACK_WHITE,
+    DEFAULT_RED,
+};
+
+#pragma mark -
 #pragma mark 색상
+
 typedef NS_ENUM(NSInteger, BBColorType){
     BBColorNormalText=0,
     BBColorTitleText,
     BBColorBackground,
     BBColorButtonBackground,
     BBColorButton,
-    BBColorButtonTitle=5,
+    BBColorButtonTitle,
+    BBColorButtonBorder,
     BBColorNaviButton,
     BBColorNaviButtonTitle,
     BBColorNaviButtonBackground,
+    BBColorNaviButtonBorder,
     BBColorNaviBackground,
-    BBColorNaviTitle=10,
+    BBColorNaviTitle,
+    BBColorNaviBottomLine,
     BBColorAlertBackground,
     BBColorAlertNormalText,
     BBColorAlertTitleText,
     BBColorAlertView,
-    BBColorAlertCancelButton=15,
+    BBColorAlertCancelButton,
+    BBColorAlertCancelButtonBorder,
     BBColorAlertCancelButtonBackground,
     BBColorAlertCancelButtonTItle,
     BBColorAlertOtherButton,
+    BBColorAlertOtherButtonBorder,
     BBColorAlertOtherButtonBackground,
-    BBColorAlertOtherButtonTItle = 20,
+    BBColorAlertOtherButtonTItle,
+    BBColorAlertBackgroundBorder,
     BBColorLineView,
     BBColorButtonHighLight,
     BBColorNaviButtonHighLight,
     BBColorAlertCancelHighLight,
-    BBColorAlertOtherHighLight=25,
+    BBColorAlertOtherHighLight,
     BBColorAlertOverlay,
     BBColorTextFieldBackground,
     BBColorTextFieldText,
     BBColorTextViewBackground,
-    BBColorTextViewText=30,
+    BBColorTextViewText,
     BBColorTextFieldBorder,
     BBColorTextViewBorder,
     BBColorTextField,
     BBColorTextView,
+
+
 };
 
 
@@ -70,19 +87,25 @@ typedef NS_ENUM(NSInteger, BBColorType){
 #define BBCOLOR_BUTTON                          @"BBCOLOR_BUTTON"
 #define BBCOLOR_BUTTON_TITLE                    @"BBCOLOR_BUTTON_TITLE"
 #define BBCOLOR_BUTTON_BACKGROUND               @"BBCOLOR_BUTTON_BACKGROUND"
+#define BBCOLOR_BUTTON_BORDER                   @"BBCOLOR_BUTTON_BORDER"
 #define BBCOLOR_NAVI_BUTTON                     @"BBCOLOR_NAVI_BUTTON"
 #define BBCOLOR_NAVI_BUTTON_TITLE               @"BBCOLOR_NAVI_BUTTON_TITLE"
 #define BBCOLOR_NAVI_BACKGROUND                 @"BBCOLOR_NAVI_BACKGROUND"
 #define BBCOLOR_NAVI_TITLE                      @"BBCOLOR_NAVI_TITLE"
 #define BBCOLOR_NAVI_BUTTON_BACKGROUND          @"BBCOLOR_NAVI_BUTTON_BACKGROUND"
+#define BBCOLOR_NAVI_BUTTON_BORDER              @"BBCOLOR_NAVI_BUTTON_BORDER"
+#define BBCOLOR_NAVI_BOTTOM_LINE                @"BBCOLOR_NAVI_BOTTOM_LINE"
 #define BBCOLOR_ALERT_BACKGROUND                @"BBCOLOR_ALERT_BACKGROUND"
+#define BBCOLOR_ALERT_BACKGROUND_BORDER         @"BBCOLOR_ALERT_BACKGROUND_BORDER"
 #define BBCOLOR_ALERT_NORMARTEXT                @"BBCOLOR_ALERT_NORMARTEXT"
 #define BBCOLOR_ALERT_TITLETEXT                 @"BBCOLOR_ALERT_TITLETEXT"
 #define BBCOLOR_ALERT_VIEW                      @"BBCOLOR_ALERT_VIEW"
 #define BBCOLOR_ALERT_CANCEL_BACKGROUND         @"BBCOLOR_ALERT_CANCEL_BACKGROUND"
+#define BBCOLOR_ALERT_CANCEL_BORDER             @"BBCOLOR_ALERT_CANCEL_BORDER"
 #define BBCOLOR_ALERT_CANCEL_TITLE              @"BBCOLOR_ALERT_CANCEL_TITLE"
 #define BBCOLOR_ALERT_OTHER_BACKGROUND          @"BBCOLOR_ALERT_OTHER_BACKGROUND"
 #define BBCOLOR_ALERT_OTHER_TITLE               @"BBCOLOR_ALERT_OTHER_TITLE"
+#define BBCOLOR_ALERT_OTHER_BORDER              @"BBCOLOR_ALERT_OTHER_BORDER"
 #define BBCOLOR_LINE_VIEW                       @"BBCOLOR_LINE_VIEW"
 #define BBCOLOR_ALERT_OVERLAY                   @"BBCOLOR_ALERT_OVERLAY"
 #define BBCOLOR_TEXTVIEW_BACKGROND              @"BBCOLOR_TEXTVIEW_BACKGROND"

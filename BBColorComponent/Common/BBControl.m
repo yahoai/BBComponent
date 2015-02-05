@@ -19,7 +19,7 @@
         [BBColor setColorKey];
     
     if(start == YES){
-        [BBComponent getBBComponent].timer = [NSTimer scheduledTimerWithTimeInterval:15.0
+        [BBComponent getBBComponent].timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                          target:self
                                        selector:@selector(changeColor)
                                        userInfo:nil
@@ -34,17 +34,29 @@
 }
 
 +(void)changeColor{
-    [BBColor setColorKey];
-    [BBControl getViewList];
+    NSDate *currentTime = [NSDate date];
     
-    NSArray *bbViewArray = [BBComponent getBBComponent].componentArray;
+    NSDateFormatter *ft = [[NSDateFormatter alloc]init];
+    [ft setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"];
+    NSDate *changedTime = [ft dateFromString:[BBColor getUserDefault:COLOR_KEY_TIME]];
+    
+    int intervall = (int) [currentTime timeIntervalSinceDate:changedTime];
+    
+    if(intervall > [BBComponent getBBComponent].changeTime){
+        [BBColor setColorKey];
+        [BBControl getViewList];
+        
+        NSArray *bbViewArray = [BBComponent getBBComponent].componentArray;
 
-//    NSLog(@"%d",bbViewArray.count);
-    for(BBUIView *view in bbViewArray){
-        [self animateFromType:view.BBColorType view:view];
+        for(BBUIView *view in bbViewArray){
+            [self animateFromType:view.BBColorType view:view];
+        }
     }
 }
 
++(void)selectColorCombination:(BBColorCombination)name{
+    [BBColor setColor:name];
+}
 
 //타입에 따른 배경&텍스트 색상 에니메이트
 + (void)animateFromType:(BBColorType )type view:(id)view{
@@ -63,6 +75,7 @@
             [UIView animateWithDuration:intervalTime animations:^{
                 component.backgroundColor = [BBColor getColor:BBColorNaviButtonBackground];
                 [component setTitleColor:[BBColor getColor:BBColorNaviButtonTitle] forState:UIControlStateNormal];
+                [component.layer setBorderColor:[[BBColor getColor:BBColorNaviButtonBorder] CGColor]];
             }];
             break;
         }
@@ -96,6 +109,7 @@
             [UIView animateWithDuration:intervalTime animations:^{
                 component.backgroundColor = [BBColor getColor:BBColorButtonBackground];
                 [component setTitleColor:[BBColor getColor:BBColorButtonTitle] forState:UIControlStateNormal];
+                [component.layer setBorderColor:[[BBColor getColor:BBColorButtonBorder] CGColor]];
             }];
             break;
         }
@@ -113,9 +127,9 @@
         case BBColorTextField:{
             BBUITextField *component = (BBUITextField *)view;
             [UIView animateWithDuration:intervalTime animations:^{
-                component.textColor = [BBColor getColor:BBColorTextFieldText];
-                component.backgroundColor = [BBColor getColor:BBColorTextFieldBackground];
-                component.layer.borderColor = [[BBColor getColor:BBColorTextFieldBorder] CGColor];
+                component.textField.textColor = [BBColor getColor:BBColorTextFieldText];
+                component.backgroundView.backgroundColor = [BBColor getColor:BBColorTextFieldBackground];
+                component.backgroundView.layer.borderColor = [[BBColor getColor:BBColorTextFieldBorder] CGColor];
             }];
             break;
         }

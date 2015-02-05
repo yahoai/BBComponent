@@ -48,6 +48,9 @@
         case BBColorBackground:
             data = [self getUserDefault:BBCOLOR_BACKGROUND];
             break;
+        case BBColorButtonBorder:
+            data = [self getUserDefault:BBCOLOR_BUTTON_BORDER];
+            break;
         case BBColorButtonTitle:
             data = [self getUserDefault:BBCOLOR_BUTTON_TITLE];
             break;
@@ -65,6 +68,9 @@
             break;
         case BBColorNaviTitle:
             data = [self getUserDefault:BBCOLOR_NAVI_TITLE];
+            break;
+        case BBColorNaviBottomLine:
+            data = [self getUserDefault:BBCOLOR_NAVI_BOTTOM_LINE];
             break;
         case BBColorNormalText:
             data = [self getUserDefault:BBCOLOR_NORMALTEXT];
@@ -84,6 +90,9 @@
         case BBColorAlertCancelButtonBackground:
             data = [self getUserDefault:BBCOLOR_ALERT_CANCEL_BACKGROUND];
             break;
+        case BBColorAlertCancelButtonBorder:
+            data = [self getUserDefault:BBCOLOR_ALERT_CANCEL_BORDER];
+            break;
         case BBColorAlertCancelButtonTItle:
             data = [self getUserDefault:BBCOLOR_ALERT_CANCEL_TITLE];
             break;
@@ -92,6 +101,9 @@
             break;
         case BBColorAlertOtherButtonTItle:
             data = [self getUserDefault:BBCOLOR_ALERT_OTHER_TITLE];
+            break;
+        case BBColorAlertOtherButtonBorder:
+            data = [self getUserDefault:BBCOLOR_ALERT_OTHER_BORDER];
             break;
         case BBColorLineView:
             data = [self getUserDefault:BBCOLOR_LINE_VIEW];
@@ -114,6 +126,9 @@
         case BBColorTextViewText:
             data = [self getUserDefault:BBCOLOR_TEXTVIEW_TEXT];
             break;
+        case BBColorNaviButtonBorder:
+            data = [self getUserDefault:BBCOLOR_NAVI_BUTTON_BORDER];
+            break;
             
             
         default:
@@ -131,19 +146,21 @@
     return color;
 }
 
-+ (NSDictionary *)getColorCombination:(float)key{
++ (NSDictionary *)getColorCombination:(BBColorCombination)key{
     NSDictionary *combination = [[NSDictionary alloc]init];
     
-    UIColor *backGroundColor,*buttonTitleColor,*buttonBackgroundColor,*naviBackgroundColor,*naviButtonTitleColor,*naviButtonBackgroundColor,*naviTitleColor,*normalTextColor,*titleColor,*alertBackgroundColor,*alertNormalText,*alertTitleText,*alertCacncelBackgroundColor,*alertCancelTitleColor,*alertOtherBackgroundColor,*alertOtherTitleColor,*lineViewColor,*textFieldBackgroundColor,*textFieldBorderColor,*textFieldTextColor,*textViewBackgroundColor,*textViewBorderColor,*textViewTextColor;
+    UIColor *backGroundColor,*buttonTitleColor,*buttonBackgroundColor,*buttonBorderColor,*naviBackgroundColor,*naviButtonTitleColor,*naviButtonBackgroundColor,*naviButtonBorderColor,*naviTitleColor,*naviBottomLineColor,*normalTextColor,*titleColor,*alertBackgroundColor,*alertNormalText,*alertTitleText,*alertCacncelBackgroundColor,*alertCancelBorderColor,*alertCancelTitleColor,*alertOtherBackgroundColor,*alertOtherBorderColor,*alertOtherTitleColor,*lineViewColor,*textFieldBackgroundColor,*textFieldBorderColor,*textFieldTextColor,*textViewBackgroundColor,*textViewBorderColor,*textViewTextColor;
     
-    NSData *backGroundColorData,*buttonTitleColorData,*buttonBackgroundColorData,*naviBackgroundColorData,*naviButtonTitleColorData,*naviButtonBackgroundColorData,*naviTitleColorData,*normalTextColorData,*titleColorData,*alertBackgroundColorData,*alertNormalTextData,*alertTitleTextData,*alertCancelBackgroundColorData,*alertCancelTitleColorData,*alertOtherBackgroundColorData,*alertOtherTitleColorData,*lineViewColorData,*textFieldBackgroundColorData,*textFieldBorderColorData,*textFieldTextColorData,*textViewBackgroundColorData,*textViewBorderColorData,*textViewTextColorData;
+    NSData *backGroundColorData,*buttonTitleColorData,*buttonBackgroundColorData,*buttonBorderColorData,*naviBackgroundColorData,*naviButtonTitleColorData,*naviButtonBackgroundColorData,*naviButtonBorderData,*naviBottomLineColorData,*naviTitleColorData,*normalTextColorData,*titleColorData,*alertBackgroundColorData,*alertCancelBorderColorData,*alertNormalTextData,*alertTitleTextData,*alertCancelBackgroundColorData,*alertCancelTitleColorData,*alertOtherBackgroundColorData,*alertOtherBorderColorData,*alertOtherTitleColorData,*lineViewColorData,*textFieldBackgroundColorData,*textFieldBorderColorData,*textFieldTextColorData,*textViewBackgroundColorData,*textViewBorderColorData,*textViewTextColorData;
     
-    if(key == 1){
+    if(key == DEFAULT_BLACK_WHITE){
         backGroundColor = UIColorFromRGB(0xffffff);
         buttonBackgroundColor = UIColorFromRGB(0x33B2E3);
         buttonTitleColor = UIColorFromRGB(0xffffff);
+        buttonBorderColor = COLOR_CLEAR;
         naviBackgroundColor = UIColorFromRGB(0x33B2E3);
         naviButtonBackgroundColor = COLOR_CLEAR;
+        naviButtonBorderColor = COLOR_CLEAR;
         naviButtonTitleColor = COLOR_FFFFFF;
         naviTitleColor = COLOR_FFFFFF;
         normalTextColor = UIColorFromRGB(0xcccccc);
@@ -152,6 +169,8 @@
         alertNormalText = UIColorFromRGB(0x000000);
         alertCacncelBackgroundColor = UIColorFromRGB(0x33B2E3);
         alertCancelTitleColor = COLOR_FFFFFF;
+        alertCancelBorderColor= COLOR_CLEAR;
+        alertOtherBorderColor = COLOR_CLEAR;
         alertOtherBackgroundColor = UIColorFromRGB(0x33B2E3);
         alertOtherTitleColor = COLOR_FFFFFF;
         lineViewColor = UIColorFromRGB(0x33B2E3);
@@ -163,12 +182,14 @@
         textViewTextColor = UIColorFromRGB(0x666666);
     }
     
-    if(key == 2){
+    if(key == DEFAULT_RED){
         backGroundColor = UIColorFromRGB(0xffffff);
         buttonBackgroundColor = UIColorFromRGB(0xD33C3A);
         buttonTitleColor = UIColorFromRGB(0xffffff);
+        buttonBorderColor = COLOR_CLEAR;
         naviBackgroundColor = UIColorFromRGB(0xD33C3A);
         naviButtonBackgroundColor = COLOR_CLEAR;
+        naviButtonBorderColor = COLOR_CLEAR;
         naviButtonTitleColor = COLOR_FFFFFF;
         naviTitleColor = COLOR_FFFFFF;
         normalTextColor = UIColorFromRGB(0xcccccc);
@@ -178,6 +199,8 @@
         alertTitleText = UIColorFromRGB(0xD33C3A);
         alertCacncelBackgroundColor = UIColorFromRGB(0x33B2E3);
         alertCancelTitleColor = COLOR_FFFFFF;
+        alertCancelBorderColor= COLOR_CLEAR;
+        alertOtherBorderColor = COLOR_CLEAR;
         alertOtherBackgroundColor = UIColorFromRGB(0xFF5A5F);
         alertOtherTitleColor = COLOR_FFFFFF;
         lineViewColor = UIColorFromRGB(0xD33C3A);
@@ -189,12 +212,14 @@
         textViewTextColor = UIColorFromRGB(0xffffff);
     }
     
-    if(key == 3){
+    if(key == DEFAULT_GREEN){
         backGroundColor = UIColorFromRGB(0x72B93C);
         buttonBackgroundColor = COLOR_FFFFFF;
         buttonTitleColor = UIColorFromRGB(0x72B93C);
+        buttonBorderColor = COLOR_CLEAR;
         naviBackgroundColor = COLOR_FFFFFF;
         naviButtonBackgroundColor = COLOR_CLEAR;
+        naviButtonBorderColor = COLOR_CLEAR;
         naviButtonTitleColor = UIColorFromRGB(0x72B93C);
         naviTitleColor = UIColorFromRGB(0x72B93C);
         normalTextColor = UIColorFromRGB(0xd5f0c0);
@@ -204,6 +229,8 @@
         alertTitleText = UIColorFromRGB(0x72B93C);
         alertCacncelBackgroundColor = UIColorFromRGB(0x33B2E3);
         alertCancelTitleColor = COLOR_FFFFFF;
+        alertCancelBorderColor= COLOR_CLEAR;
+        alertOtherBorderColor = COLOR_CLEAR;
         alertOtherBackgroundColor = UIColorFromRGB(0xFF5A5F);
         alertOtherTitleColor = COLOR_FFFFFF;
         lineViewColor = UIColorFromRGB(0xd5f0c0);
@@ -219,10 +246,14 @@
     backGroundColorData = [NSKeyedArchiver archivedDataWithRootObject:backGroundColor];
     buttonBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:buttonBackgroundColor];
     buttonTitleColorData = [NSKeyedArchiver archivedDataWithRootObject:buttonTitleColor];
+    buttonBorderColorData = [NSKeyedArchiver archivedDataWithRootObject:buttonBorderColor];
+    
     naviBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:naviBackgroundColor];
     naviButtonBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:naviButtonBackgroundColor];
     naviButtonTitleColorData = [NSKeyedArchiver archivedDataWithRootObject:naviButtonTitleColor];
     naviTitleColorData = [NSKeyedArchiver archivedDataWithRootObject:naviTitleColor];
+    naviBottomLineColorData = [NSKeyedArchiver archivedDataWithRootObject:naviBottomLineColor];
+    naviButtonBorderData = [NSKeyedArchiver archivedDataWithRootObject:naviButtonBorderColor];
     
     normalTextColorData = [NSKeyedArchiver archivedDataWithRootObject:normalTextColor];
     titleColorData   = [NSKeyedArchiver archivedDataWithRootObject:titleColor];
@@ -233,8 +264,11 @@
     
     alertOtherBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:alertOtherBackgroundColor];
     alertOtherTitleColorData =[NSKeyedArchiver archivedDataWithRootObject:alertOtherTitleColor];
+    alertOtherBorderColorData = [NSKeyedArchiver archivedDataWithRootObject:alertOtherBorderColor];
+    
     alertCancelBackgroundColorData = [NSKeyedArchiver archivedDataWithRootObject:alertCacncelBackgroundColor];
     alertCancelTitleColorData = [NSKeyedArchiver archivedDataWithRootObject:alertCancelTitleColor];
+    alertCancelBorderColorData = [NSKeyedArchiver archivedDataWithRootObject:alertCancelBorderColor];
     
     lineViewColorData = [NSKeyedArchiver archivedDataWithRootObject:lineViewColor];
     
@@ -249,20 +283,25 @@
     combination = @{
                     BBCOLOR_BACKGROUND: backGroundColorData,
                     BBCOLOR_BUTTON_BACKGROUND:buttonBackgroundColorData,
+                    BBCOLOR_BUTTON_BORDER:buttonBorderColorData,
                     BBCOLOR_BUTTON_TITLE:buttonTitleColorData,
                     BBCOLOR_NAVI_BACKGROUND:naviBackgroundColorData,
                     BBCOLOR_NAVI_BUTTON_BACKGROUND:naviButtonBackgroundColorData,
+                    BBCOLOR_NAVI_BUTTON_BORDER:naviButtonBorderData,
                     BBCOLOR_NAVI_BUTTON_TITLE:naviButtonTitleColorData,
                     BBCOLOR_NAVI_TITLE:naviTitleColorData,
+                    BBCOLOR_NAVI_BOTTOM_LINE:naviBottomLineColorData,
                     BBCOLOR_NORMALTEXT:normalTextColorData,
                     BBCOLOR_TITLETEXT:titleColorData,
                     BBCOLOR_ALERT_BACKGROUND:alertBackgroundColorData,
                     BBCOLOR_ALERT_NORMARTEXT:alertNormalTextData,
                     BBCOLOR_ALERT_TITLETEXT:alertTitleTextData,
                     BBCOLOR_ALERT_CANCEL_BACKGROUND:alertCancelBackgroundColorData,
+                    BBCOLOR_ALERT_CANCEL_BORDER:alertCancelBorderColorData,
                     BBCOLOR_ALERT_CANCEL_TITLE:alertCancelTitleColorData,
                     BBCOLOR_ALERT_OTHER_BACKGROUND:alertOtherBackgroundColorData,
                     BBCOLOR_ALERT_OTHER_TITLE:alertOtherTitleColorData,
+                    BBCOLOR_ALERT_OTHER_BORDER:alertOtherBorderColorData,
                     BBCOLOR_LINE_VIEW:lineViewColorData,
                     BBCOLOR_TEXTFIELD_BACKGROUND:textFieldBackgroundColorData,
                     BBCOLOR_TEXTFIELD_BORDER :textFieldBorderColorData,
@@ -277,25 +316,34 @@
     return combination;
 }
 
-+ (void)setColor:(float)key{
++ (void)setColor:(BBColorCombination)key{
     NSDictionary *colorCombination = [self getColorCombination:key];
     
     [self setUserDefault:BBCOLOR_BACKGROUND value:colorCombination[BBCOLOR_BACKGROUND]];
+    [self setUserDefault:BBCOLOR_BUTTON_BORDER value:colorCombination[BBCOLOR_BUTTON_BORDER]];
     [self setUserDefault:BBCOLOR_BUTTON_BACKGROUND value:colorCombination[BBCOLOR_BUTTON_BACKGROUND]];
     [self setUserDefault:BBCOLOR_BUTTON_TITLE value:colorCombination[BBCOLOR_BUTTON_TITLE]];
+    
     [self setUserDefault:BBCOLOR_NAVI_BACKGROUND value:colorCombination[BBCOLOR_NAVI_BACKGROUND]];
     [self setUserDefault:BBCOLOR_NAVI_BUTTON_BACKGROUND value:colorCombination[BBCOLOR_NAVI_BUTTON_BACKGROUND]];
+    [self setUserDefault:BBCOLOR_NAVI_BUTTON_BORDER value:colorCombination[BBCOLOR_NAVI_BUTTON_BORDER]];
     [self setUserDefault:BBCOLOR_NAVI_BUTTON_TITLE value:colorCombination[BBCOLOR_NAVI_BUTTON_TITLE]];
     [self setUserDefault:BBCOLOR_NAVI_TITLE value:colorCombination[BBCOLOR_NAVI_TITLE]];
+    [self setUserDefault:BBCOLOR_NAVI_BOTTOM_LINE value:colorCombination[BBCOLOR_NAVI_BOTTOM_LINE]];
+    
     [self setUserDefault:BBCOLOR_NORMALTEXT value:colorCombination[BBCOLOR_NORMALTEXT]];
     [self setUserDefault:BBCOLOR_TITLETEXT value:colorCombination[BBCOLOR_TITLETEXT]];
+    
     [self setUserDefault:BBCOLOR_ALERT_BACKGROUND value:colorCombination[BBCOLOR_ALERT_BACKGROUND]];
     [self setUserDefault:BBCOLOR_ALERT_NORMARTEXT value:colorCombination[BBCOLOR_ALERT_NORMARTEXT]];
     [self setUserDefault:BBCOLOR_ALERT_TITLETEXT value:colorCombination[BBCOLOR_ALERT_TITLETEXT]];
     [self setUserDefault:BBCOLOR_ALERT_CANCEL_BACKGROUND value:colorCombination[BBCOLOR_ALERT_CANCEL_BACKGROUND]];
+    [self setUserDefault:BBCOLOR_ALERT_CANCEL_BORDER value:colorCombination[BBCOLOR_ALERT_CANCEL_BORDER]];
     [self setUserDefault:BBCOLOR_ALERT_CANCEL_TITLE value:colorCombination[BBCOLOR_ALERT_CANCEL_TITLE]];
     [self setUserDefault:BBCOLOR_ALERT_OTHER_BACKGROUND value:colorCombination[BBCOLOR_ALERT_OTHER_BACKGROUND]];
+    [self setUserDefault:BBCOLOR_ALERT_OTHER_BORDER value:colorCombination[BBCOLOR_ALERT_OTHER_BORDER]];
     [self setUserDefault:BBCOLOR_ALERT_OTHER_TITLE value:colorCombination[BBCOLOR_ALERT_OTHER_TITLE]];
+    
     [self setUserDefault:BBCOLOR_LINE_VIEW value:colorCombination[BBCOLOR_LINE_VIEW]];
     
     [self setUserDefault:BBCOLOR_TEXTFIELD_BACKGROUND value:colorCombination[BBCOLOR_TEXTFIELD_BACKGROUND]];

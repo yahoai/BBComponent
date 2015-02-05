@@ -20,7 +20,7 @@
     BBUIView *backgroundView = [BBComponent makeView:(CGRect){0,20+45,[BBComponent getsSreenWidth],[BBComponent getsSreenHeight]-20-45} backgroundColor:COLOR_000000 BBColorType:BBColorBackground];
     
     
-    BBUINaviView *naviView = [BBComponent makeNaviView:(CGRect){0,0,[BBComponent getsSreenWidth],45+20} backgroundColor:COLOR_000000 title:@"BBUIButton" titleColor:COLOR_000000 delegate:self];
+    BBUINaviView *naviView = [BBComponent makeNaviView:(CGRect){0,0,[BBComponent getsSreenWidth],45+20} backgroundColor:COLOR_000000  title:@"BBUIButton"  titleColor:COLOR_000000 bottomLineColor:COLOR_000000 delegate:self];
     [naviView.leftBtn setTitle:@"BACK" forState:UIControlStateNormal];
     [naviView.rightBtn setTitle:@"색 변경" forState:UIControlStateNormal];
     
